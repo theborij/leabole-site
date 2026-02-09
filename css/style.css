@@ -800,18 +800,18 @@ body.modal-open {
 }
 
 
-/* ===== MOBILE HEADER: vertical stack (nav -> IG -> logo) ===== */
-@media (max-width: 560px) {
+/* ===== MOBILE HEADER: portrait only ===== */
+@media (max-width: 900px) and (orientation: portrait) {
   .site-header {
-    height: 170px;          /* adjust if you want more/less */
+    height: 170px;
   }
 
   body {
-    padding-top: 170px;     /* must match header height */
+    padding-top: 170px;
   }
 
   .header-inner {
-    height: 170px;          /* must match header height */
+    height: 170px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -821,26 +821,9 @@ body.modal-open {
   }
 
   .site-nav { order: 1; justify-content: center; gap: 18px; }
-  .ig-btn   { order: 2; justify-self: auto; }
+  .ig-btn   { order: 2; }
   .brand    { order: 3; }
 
-  .brand-logo { height: 62px; } /* optional: smaller logo for mobile */
+  .brand-logo { height: 62px; }
 }
 
-/* Force perfect horizontal centering + stop nav wrapping */
-.header-inner { 
-  grid-template-columns: 1fr auto 1fr;
-}
-
-.brand { 
-  justify-self: center; 
-}
-
-.site-nav { 
-  justify-self: start; 
-  white-space: nowrap; 
-}
-
-.ig-btn { 
-  justify-self: end; 
-}
