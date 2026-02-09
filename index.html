@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Lea Bole – Makeup Artist</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  
+</head>
+
+<script>
+  const observer = new IntersectionObserver(
+    entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("is-visible");
+          observer.unobserve(entry.target); // run once
+        }
+      });
+    },
+    { threshold: 0.4 }
+  );
+
+  document
+    .querySelectorAll(".about-home__title img")
+    .forEach(img => observer.observe(img));
+</script>
+
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+
+    <!-- LEFT: NAV -->
+    <nav class="site-nav">
+      <a href="index.html" class="is-active">HOME</a>
+      <a href="stills.html">STILLS</a>
+      <a href="tvc.html">TVC</a>
+      <a href="beauty.html">BEAUTY</a>
+      <a href="editorial.html">EDITORIAL</a>
+    </nav>
+
+    <!-- CENTER: LOGO -->
+    <a class="brand" href="index.html" aria-label="Lea Bole home">
+      <img class="brand-logo" src="images/lea_logo_web.png" alt="Lea Bole" />
+      <div class="brand-sub"></div>
+    </a>
+
+    <!-- RIGHT: INSTAGRAM -->
+    <a class="ig-btn"
+   href="https://www.instagram.com/lea.bole/?hl=en"
+   target="_blank"
+   rel="noopener"
+   aria-label="Instagram">
+      <!-- simple IG icon -->
+      <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M7.75 2h8.5C19.43 2 22 4.57 22 7.75v8.5C22 19.43 19.43 22 16.25 22h-8.5C4.57 22 2 19.43 2 16.25v-8.5C2 4.57 4.57 2 7.75 2Zm0 2A3.75 3.75 0 0 0 4 7.75v8.5A3.75 3.75 0 0 0 7.75 20h8.5A3.75 3.75 0 0 0 20 16.25v-8.5A3.75 3.75 0 0 0 16.25 4h-8.5ZM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10Zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6Zm5.25-.9a1.1 1.1 0 1 1 0 2.2 1.1 1.1 0 0 1 0-2.2Z" fill="currentColor"/>
+      </svg>
+    </a>
+
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <img src="images/leabole_main.jpg" alt="Lea Bole hero">
+</section>
+
+<section class="about-home">
+  <div class="about-home__inner">
+    <div class="about-home__title">
+  <img src="images/About.jpg" alt="About">
+</div>
+
+    <div class="about-home__grid">
+      <div class="about-home__text">
+        <p>
+          Lea Bole is a proficient makeup artist who brings a diverse range of expertise to her work.
+          Her profession as a beautician and passion for painting and drawing leads her to fast adaptation,
+          ingenuity and creativity. Working in a commercial industry as well as cinema and TV series has gained
+          her experience in the many aspects of this job.
+        </p>
+      </div>
+
+      <div class="about-home__image">
+        <img src="images/Lea_profilich.jpg" alt="Lea Bole">
+      </div>
+    </div>
+
+    <div class="about-home__clients">
+      <div class="about-home__clients-title">CLIENTS</div>
+      <div class="about-home__clients-list">
+        SUNTORY, ZALANDO, PORSCHE, GORENJE, FORD, BLOOMBERG, No7 COSMETICS, DR. E. VOSS COSMETICS, LIDL,
+        TAYLORS OF HARROGATE, LISCA, BARCAFFE, TELEKOM, A1, DIGISTORE24, DONAT, ALEJA, TERME KRKA, EMPORIUM,
+        JUST A CORPSE, GUŠTI, ARGETA, PHARMALINEA, MILA KRASNA, CITYPARK LJUBLJANA, NEW EDGE, MORS, LEONE,
+        TUŠ, HAUPMAN, GAJA PRESTOR, SAŠA LEŠNJEK, GAP (SLO), VOLKSWAGEN, SWIMSOR, KLET BRDA WINES, MBILLS,
+        BOBA, META
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Optional: you can add home content later -->
+
+<div class="footer-logo">
+  <img src="images/flower_logo.png" alt="Lea Bole logotype">
+</div>
+
+<footer class="site-footer">
+  <div class="site-footer__inner">
+    <div class="site-footer__label">contact</div>
+    <a class="site-footer__email" href="mailto:lea.bole@gmail.com">lea.bole@gmail.com</a>
+  </div>
+</footer>
+
+</body>
+</html>

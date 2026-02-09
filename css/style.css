@@ -1,0 +1,800 @@
+/* =========================================================
+   GLOBAL / RESET
+   ========================================================= */
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Helvetica Neue";
+  color: #111;
+  background: #ffffff;
+  padding-top: 120px; /* space for fixed header */
+
+  
+}
+
+/* =========================================================
+   HEADER + NAV (ALL PAGES)
+   ========================================================= */
+
+.site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 120px; /* locked */
+  z-index: 10;
+  background: rgba(247, 244, 244, 0.85);
+  backdrop-filter: blur(6px);
+  box-shadow:
+    0 1px 0 rgba(0, 0, 0, 0.12),
+    0 6px 14px rgba(0, 0, 0, 0.18);
+}
+
+.header-inner {
+  height: 120px; /* locked */
+  padding: 0 70px;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  max-width: none;
+  margin: 0;
+}
+
+/* NAV */
+.site-nav {
+  display: flex;
+  gap: 28px;
+  font-size: 10px;
+  letter-spacing: 1.6px;
+  text-transform: uppercase;
+}
+
+.site-nav a {
+  text-decoration: none;
+  color: #111;
+  opacity: 0.6;
+  position: relative;
+  padding-top: 10px;
+}
+
+.site-nav a::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 36px;
+  height: 2px;
+  background: rgba(0, 0, 0, 0.25);
+}
+
+.site-nav a.is-active {
+  opacity: 1;
+}
+
+.site-nav a.is-active::before {
+  width: 46px;
+  background: rgba(0, 0, 0, 0.55);
+}
+
+/* LOGO */
+
+.brand {
+  text-align: center;
+  text-decoration: none;
+}
+
+.brand-logo {
+  height: 80px; /* change freely */
+  width: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+/* INSTAGRAM */
+.ig-btn {
+  justify-self: end;
+  width: 36px;
+  height: 36px;
+  display: grid;
+  place-items: center;
+  color: rgba(0, 0, 0, 0.6);
+}
+
+.ig-btn:hover {
+  color: rgba(0, 0, 0, 0.85);
+}
+
+/* =========================================================
+   PAGE TITLES / HERO (ALL PAGES)
+   ========================================================= */
+
+.hero {
+  width: 100%;
+  height: calc(100vh - 120px);
+  min-height: 520px;
+  overflow: hidden;
+}
+
+.hero img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+h1.page-title,
+h2.page-title {
+  max-width: 1050px;
+  margin: 40px auto 10px;
+  padding: 0; /* pages can opt into wrappers; mobile adds padding */
+  font-family: "Mr De Haviland";
+  font-weight: normal;
+  font-style: italic;
+  font-size: 41px;
+  letter-spacing: 1px;
+  opacity: 0.45;
+}
+
+.under-title {
+  max-width: 1050px;
+  margin: 10px auto 10px;
+  padding: 0; /* pages can opt into wrappers; mobile adds padding */
+  font-family: "Mr De Haviland";
+  font-weight: normal;
+  font-style: italic;
+  font-size: 20px;
+  letter-spacing: 1px;
+  opacity: 0.45;
+}
+
+/* =========================================================
+   TVC PAGE ONLY (VIDEO GRID + MODAL)
+   ========================================================= */
+
+/* Limited-width wrapper (aligns content like titles) */
+.video-wrap {
+  max-width: 1050px;
+  margin: 0 auto;
+  padding: 0 70px;
+}
+
+/* Video grid */
+.video-grid {
+  margin: 0;
+  padding: 20px 0 10px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 44px 18px;
+}
+
+.video-item {
+  display: flex;
+  flex-direction: column;
+  min-width: 0; /* enables ellipsis */
+}
+
+/* Thumbnail button */
+.video-card {
+  width: 100%;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  position: relative;
+  display: block;
+  overflow: hidden;
+}
+
+.video-card img {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  display: block;
+  transform: scale(1);
+  transition: transform 0.25s ease;
+}
+
+.video-card:hover img {
+  transform: scale(1.02);
+}
+
+/* Washed YouTube play overlay */
+.video-card.yt-style {
+  position: relative;
+}
+
+.video-card.yt-style::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 68 48'%3E%3Cpath d='M66.52 7.85a8 8 0 0 0-5.65-5.65C55.93 0 34 0 34 0S12.07 0 7.13 2.2a8 8 0 0 0-5.65 5.65C0 12.8 0 24 0 24s0 11.2 1.48 16.15a8 8 0 0 0 5.65 5.65C12.07 48 34 48 34 48s21.93 0 26.87-2.2a8 8 0 0 0 5.65-5.65C68 35.2 68 24 68 24s0-11.2-1.48-16.15z' fill='%23f00'/%3E%3Cpath d='M45 24 27 14v20' fill='%23fff'/%3E%3C/svg%3E")
+    center / 68px 48px no-repeat;
+  pointer-events: none;
+  opacity: 0.9;
+}
+
+/* Title under thumb */
+.video-title {
+  margin-top: 10px;
+  font-size: 13px;
+  line-height: 1.2;
+  opacity: 0.55;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: block;
+  width: 100%;
+}
+
+/* Note line under title */
+.video-note {
+  margin-top: 6px;
+  font-size: 9px;
+  font-style: italic;
+  line-height: 1.2;
+  opacity: 0.40;
+}
+
+/* Modal */
+.video-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: none;
+}
+
+.video-modal.is-open {
+  display: block;
+}
+
+.video-modal__backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+}
+
+.video-modal__panel {
+  position: relative;
+  width: min(1000px, calc(100% - 40px));
+  margin: 120px auto 40px;
+  background: #000;
+}
+
+.video-modal__blocked{
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  padding: 20px;
+}
+
+.video-modal__blocked[hidden] {
+  display: none !important;
+}
+
+.video-modal__blockedBox{
+  max-width: 520px;
+  padding: 18px 20px;
+  background: rgba(255,255,255,0.92);
+  backdrop-filter: blur(8px);
+  text-align: center;
+  font-size: 13px;
+  line-height: 1.5;
+  opacity: 0.9;
+}
+
+.video-modal__blockedBox a{
+  display: inline-block;
+  margin-top: 10px;
+  text-decoration: underline;
+  color: #111;
+  opacity: 0.75;
+}
+
+.video-modal__close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 40px;
+  height: 40px;
+  border: 0;
+  background: rgba(255, 255, 255, 0.85);
+  cursor: pointer;
+  font-size: 28px;
+  line-height: 40px;
+}
+
+.video-modal__frame {
+  aspect-ratio: 16 / 9;
+  width: 100%;
+}
+
+/* =========================================================
+   HOME (INDEX)
+   ========================================================= */
+
+.about-home {
+  padding: 140px 0 110px;
+}
+
+.about-home__inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 70px;
+}
+
+.about-home__title {
+  margin: 0 0 50px;
+}
+
+.about-home__title img {
+  display: block;
+  height: 64px;
+  width: auto;
+
+  transform: translateX(44px);
+  opacity: 1;
+  transition: transform 2s ease, opacity 2s ease;
+}
+
+.about-home__title img.is-visible {
+  transform: translateX(0);
+  opacity: 0;
+}
+
+.about-home__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+
+.about-home__text p {
+  margin: 0;
+  max-width: 560px;
+  font-size: 16px;
+  font-weight: 200;
+  line-height: 1.6;
+  opacity: 0.55;
+}
+
+.about-home__image img {
+  width: 360px;
+  height: 360px;
+  object-fit: cover;
+  border-radius: 999px;
+  display: block;
+  margin-left: auto;
+}
+
+.about-home__clients {
+  margin-top: 80px;
+  text-align: center;
+}
+
+.about-home__clients-title {
+  font-size: 12px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  opacity: 0.55;
+  margin-bottom: 18px;
+}
+
+.about-home__clients-list {
+  max-width: 980px;
+  margin: 0 auto;
+  font-size: 11px;
+  line-height: 1.9;
+  opacity: 0.45;
+}
+
+/* =========================================================
+   GALLERIES (EDITORIAL / BEAUTY / STILLS / FUTURE BRIDAL)
+   - Uses .project-* + .thumb
+   - (Future bridal: videos inside galleries, displayed like photos)
+   ========================================================= */
+
+.page-wrap {
+  padding: 40px 0 80px;
+}
+
+.project {
+  max-width: 1200px;
+  margin: 0 auto 40px;
+  padding: 0 70px;
+}
+
+/* Slider layout */
+.project-slider {
+  position: relative;
+}
+
+.project-viewport {
+  overflow-x: auto;
+  overflow-y: hidden;
+  scrollbar-width: none;
+}
+.project-viewport::-webkit-scrollbar {
+  display: none;
+}
+
+/* One horizontal row */
+.project-grid {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 10px;
+  align-items: stretch;
+  will-change: transform;
+  transition: transform 280ms ease;
+}
+
+/* Each thumb */
+.thumb {
+  border: 0;
+  padding: 0;
+  background: transparent;
+  cursor: pointer;
+  display: block;
+  flex: 0 0 auto;
+}
+
+.thumb img {
+  height: 360px;
+  width: auto;
+  display: block;
+}
+
+/* Gallery description under each slider */
+.project-desc {
+  margin-top: 14px;
+  font-size: 11px;
+  line-height: 1.45;
+  opacity: 0.45;
+  max-width: 1000px;
+}
+
+/* Slider arrows (outside images) */
+.project-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  padding: 10px;
+  opacity: 0.35;
+  transition: opacity 0.2s ease;
+}
+
+.project-arrow:hover {
+  opacity: 0.8;
+}
+
+/* Outside positioning */
+.project-arrow--prev {
+  left: -46px;
+}
+.project-arrow--next {
+  right: -46px;
+}
+
+/* Clean drawn arrow */
+.project-arrow::before {
+  content: "";
+  display: block;
+  width: 16px;
+  height: 16px;
+  border-top: 1.5px solid rgba(0, 0, 0, 0.6);
+  border-right: 1.5px solid rgba(0, 0, 0, 0.6);
+}
+.project-arrow--prev::before {
+  transform: rotate(-135deg);
+}
+.project-arrow--next::before {
+  transform: rotate(45deg);
+}
+
+/* =========================================================
+   LIGHTBOX (STORED / CURRENTLY DISABLED IN PAGES)
+   ========================================================= */
+
+body.modal-open {
+  overflow: hidden;
+}
+
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: none;
+}
+
+.lightbox.is-open {
+  display: block;
+}
+
+.lightbox__backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(8px);
+}
+
+.lightbox__shell {
+  position: relative;
+  height: 100%;
+  width: 100%;
+}
+
+.lightbox__close {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  border: 0;
+  background: transparent;
+  font-size: 34px;
+  cursor: pointer;
+  opacity: 0.5;
+}
+
+.lightbox__content {
+  height: 100%;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 320px;
+  gap: 40px;
+  padding: 90px 70px 60px;
+  align-items: start;
+}
+
+.lightbox__imageWrap {
+  max-height: calc(100vh - 180px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.lightbox__img {
+  max-width: 100%;
+  max-height: calc(100vh - 180px);
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  display: block;
+}
+
+.lightbox__meta {
+  font-size: 14px;
+  line-height: 1.6;
+  opacity: 0.55;
+  white-space: pre-line;
+}
+
+.lightbox__desc {
+  margin-top: 26px;
+  text-transform: lowercase;
+  opacity: 0.5;
+}
+
+/* Lightbox arrows */
+.lightbox__nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  border: 0;
+  background: transparent;
+  font-size: 44px;
+  cursor: pointer;
+  opacity: 0.3;
+}
+
+.lightbox__nav--prev {
+  left: 18px;
+}
+.lightbox__nav--next {
+  right: 18px;
+}
+
+.lightbox__nav:hover {
+  opacity: 0.6;
+}
+
+/* =========================================================
+   FOOTER (ALL PAGES)
+   ========================================================= */
+
+  .footer-logo {
+  display: flex;
+  justify-content: center;
+  padding: 0 0 20px;
+  transform: translateX(8px); /* move logo up optically */
+}
+
+.footer-logo img {
+  height: 150px;
+  width: auto;
+  opacity: 0.6;
+}
+
+.site-footer {
+  background: #e1d6d1;
+  padding: 35px 0;
+}
+
+.site-footer__inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 70px;
+  text-align: center;
+}
+
+.site-footer__label {
+  font-size: 10px;
+  letter-spacing: 1px;
+  text-transform: lowercase;
+  opacity: 0.5;
+  margin-bottom: 6px;
+}
+
+.site-footer__email {
+  font-size: 13px;
+  color: #111;
+  opacity: 0.5;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+/* =========================================================
+   INTERACTION / CURSOR
+   ========================================================= */
+
+
+
+/* =========================================================
+   RESPONSIVE (GLOBAL BREAKPOINTS)
+   ========================================================= */
+
+@media (max-width: 900px) {
+  /* Header */
+  .header-inner {
+    padding: 0 20px;
+    height: 90px;
+  }
+  .site-header {
+    height: 90px;
+  }
+  body {
+    padding-top: 90px;
+  }
+
+  /* Titles (give breathing room on small screens) */
+  h1.page-title,
+  h2.page-title {
+    padding: 0 20px;
+  }
+  .under-title {
+    padding: 0 20px;
+  }
+
+  /* TVC */
+  .video-wrap {
+    padding: 0 20px;
+  }
+  .video-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 36px 16px;
+  }
+
+  /* Home + Footer */
+  .about-home__inner,
+  .site-footer__inner {
+    padding: 0 20px;
+  }
+  .about-home {
+    padding: 90px 0 70px;
+  }
+  .about-home__title {
+    font-size: 44px;
+    margin-bottom: 30px;
+  }
+  .about-home__grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+    justify-items: center;
+    text-align: center;
+  }
+  .about-home__text p {
+    max-width: 650px;
+  }
+  .about-home__image img {
+    margin: 0 auto;
+    width: 280px;
+    height: 280px;
+  }
+
+  /* Galleries */
+  .project {
+    padding: 0 20px;
+  }
+  .project-desc {
+    font-size: 10px;
+    max-width: 100%;
+  }
+
+  /* Lightbox (stored) */
+  .lightbox__content {
+    grid-template-columns: 1fr;
+    padding: 80px 20px 40px;
+  }
+  .lightbox__imageWrap {
+    height: auto;
+    max-height: 70vh;
+  }
+
+  /* Gallery arrow spacing on smaller screens */
+  .project-arrow--prev {
+    left: -28px;
+  }
+  .project-arrow--next {
+    right: -28px;
+  }
+}
+
+@media (max-width: 560px) {
+  /* TVC */
+  .video-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 520px) {
+  /* Galleries */
+  .thumb img {
+    height: 240px;
+  }
+  .project-arrow {
+    display: none;
+  }
+}
+
+@media (max-width: 1100px) {
+  /* Galleries */
+  .project-grid {
+    gap: 26px;
+  }
+  .thumb img {
+    height: 320px;
+  }
+  .project-arrow--prev {
+    left: 0;
+  }
+  .project-arrow--next {
+    right: 0;
+  }
+}
+
+@media (max-width: 800px) {
+  /* Galleries */
+  .project-grid {
+    gap: 18px;
+  }
+  .thumb img {
+    height: 260px;
+  }
+}
+
+
+
+
+  /* DIVIDER */
+.section-divider {
+  max-width: 1050px;
+  height: 1px;
+  margin: 70px auto 50px;
+  background: rgba(0,0,0,0.15);
+}
