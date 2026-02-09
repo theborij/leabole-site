@@ -826,3 +826,21 @@ body.modal-open {
 
   .brand-logo { height: 62px; } /* optional: smaller logo for mobile */
 }
+
+/* Force perfect horizontal centering + stop nav wrapping */
+.header-inner { 
+  grid-template-columns: 1fr auto 1fr;
+}
+
+.brand { 
+  justify-self: center; 
+}
+
+.site-nav { 
+  justify-self: start; 
+  white-space: nowrap; 
+}
+
+.ig-btn { 
+  justify-self: end; 
+}
