@@ -798,3 +798,31 @@ body.modal-open {
   margin: 70px auto 50px;
   background: rgba(0,0,0,0.15);
 }
+
+
+/* ===== MOBILE HEADER: vertical stack (nav -> IG -> logo) ===== */
+@media (max-width: 560px) {
+  .site-header {
+    height: 170px;          /* adjust if you want more/less */
+  }
+
+  body {
+    padding-top: 170px;     /* must match header height */
+  }
+
+  .header-inner {
+    height: 170px;          /* must match header height */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 16px;
+    gap: 10px;
+  }
+
+  .site-nav { order: 1; justify-content: center; gap: 18px; }
+  .ig-btn   { order: 2; justify-self: auto; }
+  .brand    { order: 3; }
+
+  .brand-logo { height: 62px; } /* optional: smaller logo for mobile */
+}
