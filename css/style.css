@@ -800,30 +800,49 @@ body.modal-open {
 }
 
 
-/* ===== MOBILE HEADER: portrait only ===== */
+/* =========================================================
+   HEADER FINAL:
+   - Desktop + mobile landscape: logo centered BETWEEN nav and IG
+   - Mobile portrait: stacked (nav / IG / logo)
+   ========================================================= */
+
+/* DEFAULT = desktop + mobile landscape */
+.header-inner{
+  display: grid;
+  grid-template-columns: auto auto auto;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.site-nav{ justify-self: start; }
+.brand{ justify-self: center; }
+.ig-btn{ justify-self: end; }
+
+/* MOBILE PORTRAIT ONLY = vertical stack */
 @media (max-width: 900px) and (orientation: portrait) {
-  .site-header {
-    height: 170px;
-  }
+  .site-header{ height: 170px !important; }
+  body{ padding-top: 170px !important; }
 
-  body {
-    padding-top: 170px;
-  }
-
-  .header-inner {
-    height: 170px;
-    display: flex;
+  .header-inner{
+    height: 170px !important;
+    padding: 10px 16px !important;
+    display: flex !important;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 10px 16px;
     gap: 10px;
   }
 
-  .site-nav { order: 1; justify-content: center; gap: 18px; }
-  .ig-btn   { order: 2; }
-  .brand    { order: 3; }
+  .site-nav{ order: 1; justify-content: center; gap: 18px; }
+  .ig-btn{ order: 2; justify-self: auto; }
+  .brand{ order: 3; justify-self: auto; }
 
-  .brand-logo { height: 62px; }
+  .brand-logo{ height: 62px; }
 }
 
+/* MOBILE LANDSCAPE + TABLET (<=900px but NOT portrait): keep horizontal + correct heights */
+@media (max-width: 900px) and (orientation: landscape) {
+  .site-header{ height: 90px !important; }
+  body{ padding-top: 90px !important; }
+  .header-inner{ height: 90px !important; padding: 0 20px !important; }
+}
