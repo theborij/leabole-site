@@ -1,3 +1,10 @@
+@font-face {
+  font-family: "BrittanySignature";
+  src: url("../fonts/BrittanySignature.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
 /* =========================================================
    GLOBAL / RESET
    ========================================================= */
@@ -845,4 +852,505 @@ body.modal-open {
   .site-header{ height: 90px !important; }
   body{ padding-top: 90px !important; }
   .header-inner{ height: 90px !important; padding: 0 20px !important; }
+}
+
+/* =========================================================
+   BRIDAL (ONLY BLOCK - reference layout)
+   ========================================================= */
+
+/* HERO banner */
+.bridal-hero{
+  width: 100%;
+  height: 500px;
+  overflow: hidden;
+  position: relative;
+}
+.bridal-hero img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 55%;
+  display: block;
+}
+@media (max-width: 900px){
+  .bridal-hero{ height: 220px; }
+}
+
+/* MOJA ZGODBA */
+.bridal-story{
+  background: #efe9e7;
+  padding: 90px 0 120px;
+}
+
+.bridal-story__inner{
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 0;
+  display: grid;
+  grid-template-columns: 430px 1fr;
+  gap: 80px;
+  align-items: start;
+  position: relative;
+  overflow: visible; /* allow overlap */
+}
+
+/* left photo (your chosen size) */
+.bridal-story__photo{
+  margin-top: 10px;
+  position: relative;
+  z-index: 5;
+}
+.bridal-story__photo img{
+  width: 400px;
+  height: 530px;
+  object-fit: cover;
+  display: block;
+}
+
+/* right column */
+.bridal-story__content{
+  position: relative;
+  z-index: 3;      /* keep title above everything */
+  overflow: visible;
+}
+
+/* badges + line */
+.bridal-badges{
+  display: flex;
+  justify-content: space-between;
+  gap: 28px;
+  text-align: center;
+  font-size: 12px;
+  opacity: 0.55;
+}
+.bridal-badge{
+  position: relative;
+  padding-top: 18px;
+  line-height: 1.25;
+  flex: 1;
+}
+.bridal-badge::before{
+  content: "💎";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 13px;
+  opacity: 0.35;
+}
+.bridal-topline{
+  margin-top: 18px;
+  height: 1px;
+  width: 100%;
+  background: rgba(0,0,0,0.25);
+  opacity: 0.35;
+}
+
+.bridal-script-img{
+  width: 220px;          /* adjust size */
+  height: auto;
+  display: block;
+
+  position: relative;
+  z-index: 10;
+
+  transform: translate(0, 180px);  /* same positioning logic as before */
+}
+
+.bridal-script-gallery{
+  width: 320px;     /* adjust to match reference */
+  height: auto;
+  display: block;
+
+  margin: 60px auto 40px;  /* space above gallery */
+  opacity: 0.75;
+}
+
+/* title (NOT cropped) */
+.bridal-script{
+  margin: 44px 0 0;
+  font-family: "BrittanySignature";
+  font-weight: normal;
+  font-style: normal;
+  font-size: 46px;
+  letter-spacing: 0.2px;
+  opacity: 0.55;
+
+  display: inline-block;
+  position: relative;
+  z-index: 10;
+  transform: translate(-60px, 65px);
+
+  /* bulletproof: stop font descender clipping */
+  line-height: 1.6;
+  padding: 0 0 42px 0;
+  overflow: visible;
+}
+
+/* flowers (right side, above box, not on text) */
+.bridal-illus{
+  position: absolute;
+  top: 70px;
+  right: 20px;
+  width: 250px;
+  height: auto;
+  opacity: 0.50;
+  pointer-events: none;
+  z-index: 3;
+}
+
+/* white box UNDER the left photo */
+.bridal-story__box{
+  background: #fff;
+  padding: 52px 200px 58px;
+  margin-top: 160px;
+
+  width: 1040px;
+  max-width: none;
+  margin-left: -260px; /* this is what makes it go under the photo */
+
+  box-sizing: border-box;
+  position: relative;
+  z-index: 1;
+}
+
+/* text */
+.bridal-story__text{
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 200;
+  line-height: 1.75;
+  opacity: 0.70;
+  max-width: 760px;
+}
+.bridal-story__text p{ margin: 0 0 18px; }
+
+/* Responsive */
+@media (max-width: 900px){
+  .bridal-story__inner{
+    grid-template-columns: 1fr;
+    padding: 0 20px;
+    gap: 30px;
+  }
+  .bridal-story__photo img{
+    width: 100%;
+    height: 520px;
+  }
+  .bridal-script{
+    transform: translate(0, 10px);
+    text-align: center;
+  }
+  .bridal-illus{
+    top: 210px;
+    right: 16px;
+    width: 160px;
+  }
+  .bridal-story__box{
+    width: 100%;
+    max-width: 100%;
+    margin-left: 0;
+    padding: 34px 22px 34px;
+  }
+}
+
+/* BRIDAL GALLERY */
+.bridal-wrap{
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px 70px 90px;
+}
+.bridal-gallery{
+  column-count: 3;
+  column-gap: 18px;
+}
+.bridal-gallery img{
+  width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 0 18px;
+  break-inside: avoid;
+}
+@media (max-width: 900px){
+  .bridal-wrap{ padding: 0 20px 70px; }
+  .bridal-gallery{ column-count: 2; column-gap: 16px; }
+  .bridal-gallery img{ margin-bottom: 16px; }
+}
+@media (max-width: 560px){
+  .bridal-gallery{ column-count: 1; }
+}
+
+
+/* =========================================================
+   BRIDAL TESTIMONIALS
+   ========================================================= */
+
+.bridal-testimonials{
+  background: #f4eeec;
+  padding: 90px 0 100px;
+}
+
+.bridal-testimonials__inner{
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 70px;
+}
+
+.bridal-testimonials__kicker{
+  font-size: 10px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  opacity: 0.45;
+  margin-bottom: 10px;
+}
+
+.bridal-testimonials__title{
+  margin: 0 0 26px;
+  font-family: "BrittanySignature";
+  font-weight: normal;
+  font-style: normal;
+  font-size: 46px;
+  opacity: 0.55;
+  line-height: 1.2;
+}
+
+.bridal-testimonials__grid{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+
+.testimonial-card{
+  position: relative;
+  padding: 22px 22px 18px;
+  border-radius: 18px;
+  background: rgba(255,255,255,0.70);
+  border: 1px solid rgba(0,0,0,0.08);
+  box-shadow: 0 10px 26px rgba(0,0,0,0.06);
+  backdrop-filter: blur(8px);
+}
+
+.testimonial-card::before{
+  content: "“";
+  position: absolute;
+  top: 8px;
+  left: 14px;
+  font-size: 58px;
+  line-height: 1;
+  opacity: 0.10;
+}
+
+.testimonial-quote{
+  margin: 0;
+}
+
+.testimonial-quote p{
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.65;
+  font-weight: 200;
+  opacity: 0.70;
+}
+
+.testimonial-author{
+  margin-top: 14px;
+  font-size: 11px;
+  font-style: italic;
+  opacity: 0.50;
+  text-align: right;
+}
+
+/* Mobile: swipeable carousel */
+@media (max-width: 900px){
+  .bridal-testimonials__inner{ padding: 0 20px; }
+
+  .bridal-testimonials__grid{
+    display: flex;
+    gap: 14px;
+    overflow-x: auto;
+    padding-bottom: 8px;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .bridal-testimonials__grid::-webkit-scrollbar{ display: none; }
+
+  .testimonial-card{
+    flex: 0 0 82%;
+    scroll-snap-align: start;
+  }
+}
+
+
+/* =========================================================
+   BRIDAL TOUCH-UP KIT
+   ========================================================= */
+
+.bridal-touchkit{
+  margin-top: 100px;
+  padding-top: 70px;
+  border-top: 1px solid rgba(0,0,0,0.08);
+}
+
+.bridal-touchkit__content{
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  align-items: center;
+  gap: 60px;
+}
+
+.bridal-touchkit__intro{
+  font-size: 14px;
+  line-height: 1.8;
+  font-weight: 200;
+  opacity: 0.75;
+  margin-bottom: 28px;
+}
+
+.bridal-touchkit__list{
+  list-style: disc;
+  padding-left: 18px;
+  margin: 0 0 28px;
+}
+
+.bridal-touchkit__list li{
+  font-size: 13px;
+  line-height: 1.8;
+  font-weight: 200;
+  opacity: 0.70;
+  margin-bottom: 6px;
+}
+
+.bridal-touchkit__note{
+  font-style: italic;
+  font-size: 14px;
+  opacity: 0.60;
+}
+
+.bridal-touchkit__image img{
+  max-width: 340px;
+  width: 100%;
+  height: auto;
+  opacity: 0.85;
+}
+
+/* Mobile */
+@media (max-width: 900px){
+
+  .bridal-touchkit__content{
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .bridal-touchkit__image{
+    text-align: center;
+  }
+
+  .bridal-touchkit__image img{
+    max-width: 260px;
+  }
+}
+
+/* =========================================================
+   BRIDAL PDF SECTION
+   ========================================================= */
+
+.bridal-pdf{
+  padding: 120px 0 140px;
+  display: flex;
+  justify-content: center;
+}
+
+.bridal-pdf__inner{
+  width: 100%;
+  max-width: 900px;
+  padding: 60px 40px 70px;
+  text-align: center;
+
+  border: 2px solid rgba(120, 95, 85, 0.35);
+  border-radius: 220px 220px 220px 220px;
+
+  background: rgba(187, 168, 168, 0.55);
+  backdrop-filter: blur(4px);
+}
+
+.bridal-pdf__text{
+  font-size: 22px;
+  margin-bottom: 40px;
+  opacity: 0.75;
+}
+
+.bridal-pdf__text span{
+  text-decoration: underline;
+}
+
+.bridal-pdf__button{
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+
+  padding: 18px 46px;
+
+  border: 2px solid #8a6f63;
+  border-radius: 40px;
+
+  font-size: 20px;
+  text-decoration: none;
+  color: #8a6f63;
+
+  transition: all 0.3s ease;
+}
+
+.bridal-pdf__button .arrow{
+  font-size: 18px;
+  transition: transform 0.3s ease;
+}
+
+.bridal-pdf__button:hover{
+  background: #8a6f63;
+  color: #fff;
+}
+
+.bridal-pdf__button:hover .arrow{
+  transform: translateY(3px);
+}
+
+/* Mobile */
+@media (max-width: 768px){
+
+  .bridal-pdf{
+    padding: 90px 20px 100px;
+  }
+
+  .bridal-pdf__inner{
+    padding: 50px 25px 60px;
+    border-radius: 60px 60px 0 0;
+  }
+
+  .bridal-pdf__text{
+    font-size: 18px;
+  }
+
+  .bridal-pdf__button{
+    font-size: 18px;
+    padding: 14px 32px;
+  }
+}
+
+
+/* =========================================================
+   BRIDAL STANDALONE IMAGE
+   ========================================================= */
+
+.bridal-standalone{
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+.bridal-standalone img{
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
 }
